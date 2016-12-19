@@ -22,7 +22,8 @@
 	<link rel="stylesheet" href="css/style.css" type="text/css" />
     <link rel="stylesheet" href="css/responsive.css" type="text/css" />
     <link rel="stylesheet" href="css/custom.css" type="text/css" />
-	<link rel="stylesheet" href="css/scroller_pagination.css" type="text/css" />
+    <link rel="stylesheet" href="css/scroller_pagination.css" type="text/css" />
+	<link rel="stylesheet" href="css/main_nav.css" type="text/css" />
 	<link rel="stylesheet" href="js/slick/slick.css" type="text/css" /> 
 	<!-- JS -->
 	<script src="js/jquery.min.js"></script> 
@@ -43,23 +44,21 @@
         <div class="logo Kradle">
             <a href="index.html"><img src="images/kradle_logo_a.png" alt="Kradle"></a>
         </div>
-        <nav class="navigation">
-            <div class="navButton btn-menu">
-                <a href="#"></a>
-                <ul class="subnav">                
-                    <li class="home">
-                        <div class="after"></div>
-                        <h1>product</h1>
-                    </li>                    
-                    <li class="about">
-                        <div class="after"></div>
-                        <h1>about</h1>
-                    </li>                    
-                    <li class="contact">
-                        <div class="after"></div>
-                        <h1>contact</h1>
-                    </li>                    
-                </ul>
+        <nav>
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+
+            <div class="overlay" id="overlay">
+                <nav class="overlay-menu">
+                    <ul>
+                        <li ><a href="#home"  class="hme">Home</a></li>
+                        <li><a href="#about1" class="abt">About</a></li>
+                        <li><a href="#contact" class="cnt">Contact</a></li>
+                    </ul>
+                </nav>
             </div>
         </nav>
 
@@ -195,4 +194,40 @@
         </section>                        
     </div>
 
+
+
+<!-- Script for main nav -->
+<script type="text/javascript">
+// Main nav starts
+// Room for optimization
+$('#toggle').click(function() {
+    $(this).toggleClass('active');
+    $('#overlay').toggleClass('open');
+});
+$('#overlay li .hme').click(function() {
+    $('#toggle').toggleClass('active');
+    $('#overlay').toggleClass('open');
+    $('html, body').animate({
+        scrollTop:$('#home').offset().top
+    }, 1000);
+    return false;
+});
+$('#overlay li .abt').click(function() {
+    $('#toggle').toggleClass('active');
+    $('#overlay').toggleClass('open');
+    $('html, body').animate({
+        scrollTop:$('#about1').offset().top
+    }, 1000);
+    return false;
+});
+$('#overlay li .cnt').click(function() {
+    $('#toggle').toggleClass('active');
+    $('#overlay').toggleClass('open');
+    $('html, body').animate({
+        scrollTop:$('#contact').offset().top
+    }, 1000);
+    return false;
+});
+// Main nav ends
+</script>
 </body>
