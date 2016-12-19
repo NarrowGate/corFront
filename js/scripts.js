@@ -32,9 +32,44 @@ $(function() {
     setScrollIcon();
     smoothScroll();
     detectDevicesandScreens();
-    int_interests_icons();
     adapt_mainPic_height();
     rotateH1();
+    redrawDotNav();
+
+    /* Scroll event handler */
+    $(window).bind('scroll',function(e){
+        redrawDotNav();
+    });
+    
+    /* Next/prev and primary nav btn click handlers */
+    $('a.home').click(function(){
+        $('html, body').animate({
+            scrollTop:0
+        }, 1000);
+        return false;
+    });
+    $('a.about1').click(function(){
+        $('html, body').animate({
+            scrollTop:$('#about1').offset().top
+        }, 1000);
+        return false;
+    });
+    $('a.contact').click(function(){
+        $('html, body').animate({
+            scrollTop:$('#contact').offset().top
+        }, 1000);
+        return false;
+    });
+    
+    /* Show/hide dot lav labels on hover */
+    $('nav#primary a').hover(
+        function () {
+            $(this).prev('h1').show();
+        },
+        function () {
+            $(this).prev('h1').hide();
+        }
+    );
 
 
     (new ScrollScene({

@@ -1,14 +1,3 @@
-/*!
-* www.KNACSS.com V2.9.3 (2014-02) @author: Raphael Goetter, Alsacreations
-* Licence WTFPL http://www.wtfpl.net/
-*/
-
-/* ----------------------------- */
-
-/* == soft reset                 */
-
-/* ----------------------------- */
-
 /* switching box model for all elements */
 
 * {
@@ -28,6 +17,7 @@ body {
 ul,
 ol {
   padding-left: 2em;
+  list-style: none;
 }
 
 ul.unstyled {

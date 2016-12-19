@@ -15,6 +15,24 @@ function smoothScroll() {
     })
 }
 
+
+/* Set navigation dots to an active state as the user scrolls */
+function redrawDotNav(){
+    var section1Top =  0;
+    // The top of each section is offset by half the distance to the previous section.
+    var section2Top =  $('#about1').offset().top - (($('#contact').offset().top - $('#about1').offset().top) / 2);
+    var section3Top =  $('#contact').offset().top - (($(document).height() - $('#contact').offset().top) / 2);
+    $('nav#primary a').removeClass('active');
+    if($(document).scrollTop() >= section1Top && $(document).scrollTop() < section2Top){
+        $('nav#primary a.home').addClass('active');
+    } else if ($(document).scrollTop() >= section2Top && $(document).scrollTop() < section3Top){
+        $('nav#primary a.about1').addClass('active');
+    } else if ($(document).scrollTop() >= section3Top){
+        $('nav#primary a.contact').addClass('active');
+    }
+    
+}
+
         var moveItItem = function(el){
             this.el = $(el);
             this.speed = parseInt(this.el.attr('data-scroll-speed'));
@@ -48,17 +66,6 @@ function setScrollIcon() {
         $(".scrollDown").hasClass("on") ? $(".scrollDown").removeClass("on") : $(".scrollDown").addClass("on");
         setScrollIcon()
     }, 4E3)
-}
-
-function setAnimLogo() {
-    setTimeout(function() {
-        $logo = $(".logo a img");
-        $date = new Date;
-        setTimeout(function() {
-            $logo.attr("src", "./WD_IMAGES/GLOBAL/animation-logo-lempens-design.gif?" + $date.getTime() + "")
-        }, 1E3);
-        setAnimLogo()
-    }, 3E4)
 }
 
 function detectDevicesandScreens() {
@@ -197,80 +204,4 @@ function subnavLi(a, b) {
     }
 }
 
-function init_slides() {
-    TweenMax.killTweensOf($(".skills_circles"), $(".skills_softwares"));
-    $(".svgCircle").removeClass("animate");
-    $(".activeThumb").css("opacity", 0);
-    $(".skills_circles").find("h1").css("opacity", 0);
-    $(".skills_softwares").children(".row").css({
-        top: 0,
-        opacity: 0
-    });
-    $(".skills_softwares").find(".col").children("div").css({
-        height: 0
-    });
-    $(".skills_softwares").find(".col").children("h1").css({
-        marginBottom: -10,
-        opacity: 0
-    });
-    $(".skills_softwares").next("p").css({
-        opacity: 0
-    })
-}
-
-function int_interests_icons() {
-    TweenMax.fromTo($(".heart img"), .45, {
-        scale: 1.4
-    }, {
-        repeatDelay: .5,
-        scale: 1,
-        repeat: -1,
-        ease: Back.easeOut
-    });
-    $("#interests_about_me").find("span").each(function(a) {
-        a *= 145;
-        TweenMax.to($(this), 0, {
-            startAt: {
-                backgroundPosition: "-" + a + "px 0"
-            }
-        });
-        $(this).on("mouseenter", function() {
-            var a = $(this).css("backgroundPosition").split(" ")[0];
-            $(this).parent().append('<div class="fillBg"></div>');
-            TweenMax.to($(this), .6, {
-                backgroundPosition: a + " -145px",
-                ease: Back.easeOut
-            });
-            TweenMax.to($(this).parent().children(".fillBg"),
-                .3, {
-                    height: 145,
-                    ease: Back.easeOut
-                })
-        });
-        $(this).on("mouseleave", function() {
-            var a = $(this).css("backgroundPosition").split(" ")[0];
-            TweenMax.to($(this), .6, {
-                backgroundPosition: a + " 0px",
-                ease: Back.easeIn
-            });
-            TweenMax.to($(this).parent().children(".fillBg"), .3, {
-                height: 0,
-                ease: Back.easeIn,
-                onCompleteParams: [$(this).parent().children(".fillBg")],
-                onComplete: function(a) {
-                    a.remove()
-                }
-            })
-        })
-    })
-}
 $increment = 0;
-
-function countAwards() {
-    var a = $("#awards .counter"),
-        b = $(".slideAwards .slick-slide:not(.slick-cloned) a:not(.not_awards)").length,
-        c;
-    c = setInterval(function() {
-        $increment < b + 1 ? (a.html($increment), $increment++) : clearInterval(c)
-    }, 120)
-};

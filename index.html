@@ -2,7 +2,7 @@
 <!--[if IE 8 ]> <html lang="fr" class="ltr fr no-js ie ie8"> <![endif]-->
 <!--[if IE 9 ]> <html lang="fr" class="ltr fr no-js ie ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
-<html class="no-js" lang="fr">
+<html class="no-js" lang="en">
 <!--<![endif]-->
 
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
@@ -15,9 +15,6 @@
 	<!-- Mobile -->	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 	<meta name="apple-mobile-web-app-capable" content="yes" />
-
-	<!-- Favicons -->
-	
 
 	<!-- Css -->
 	<link rel="stylesheet" href="css/layout.css" type="text/css" />
@@ -47,41 +44,41 @@
             <a href="index.html"><img src="images/kradle_logo_a.png" alt="Kradle"></a>
         </div>
         <nav class="navigation">
-<!--             <div class="navButton btn-menu">
+            <div class="navButton btn-menu">
                 <a href="#"></a>
                 <ul class="subnav">                
-                        <li class="home">
-                            <div class="after"></div>
-                            <h1>product</h1>
-                        </li>                    
-                        <li class="about">
-                            <div class="after"></div>
-                            <h1>about</h1>
-                        </li>                    
-                        <li class="contact">
-                            <div class="after"></div>
-                            <h1>contact</h1>
-                        </li>                    
+                    <li class="home">
+                        <div class="after"></div>
+                        <h1>product</h1>
+                    </li>                    
+                    <li class="about">
+                        <div class="after"></div>
+                        <h1>about</h1>
+                    </li>                    
+                    <li class="contact">
+                        <div class="after"></div>
+                        <h1>contact</h1>
+                    </li>                    
                 </ul>
-            </div> -->
+            </div>
         </nav>
 
-                    <nav id="primary">
-                <ul>
-                    <li>
-                        <h1>Home</h1>
-                        <a class="home" href="#home">View</a>
-                    </li>
-                    <li>
-                        <h1>About</h1>
-                        <a class="about1" href="#about1">View</a>
-                    </li>
-                    <li>
-                        <h1>Contact</h1>
-                        <a class="contact" href="#contact">View</a>
-                    </li>
-                </ul>
-            </nav>
+        <nav id="primary">
+            <ul>
+                <li>
+                    <h1>Home</h1>
+                    <a class="home" href="#home">View</a>
+                </li>
+                <li>
+                    <h1>About</h1>
+                    <a class="about1" href="#about1">View</a>
+                </li>
+                <li>
+                    <h1>Contact</h1>
+                    <a class="contact" href="#contact">View</a>
+                </li>
+            </ul>
+        </nav>
 
         <nav class="pricing">
             <a href="#">Pricing / Free Trial</a>
@@ -92,8 +89,8 @@
     <div id="main">
 
         <!-- HOME -->            
-        <section class="france home" id="home" style="border: 10px solid red;">
-            <article class="mainPicture" style="background-image:url(images/france-main-picture.jpg)">
+        <section class="france home" id="home">
+            <article class="mainPicture" style="background-image:url(images/bg_hme.png)">
                 <div class="fadeMainPicture"></div>
                 <div class="w990px">                    
                     <div class="welcomeTitle">
@@ -123,22 +120,24 @@
             </article>
         </section>
                 
-
         <!-- ABOUT -->               
-        <section class="about1" id="about1" style="border: 10px solid green;">
+        <section class="about1" id="about1">
             <article class="mainPicture" style="background-image:url(images/belgique-main-picture.jpg)">
                 <div class="fadeMainPicture"></div>
             </article>
-            <article class="about-1">
+            <article class="apropos-1">
                 <div class="w990px">
+                    <div class="perspectiveH1">
+                        <h1 class='rotateH1 rotateH1FR'>Kradle</h1>
+                    </div>
+                    <div class="clear"></div>
                 </div>
             </article>
         </section>
                     
 
-        <!-- CONTACT -->
-                    
-        <section class="contact" id="contact"  style="border: 10px solid blue;">
+        <!-- CONTACT -->                   
+        <section class="contact" id="contact">
             <article class="mainPicture" style="background-image:url(images/belgique-main-picture.jpg)">
                 <div class="fadeMainPicture"></div>
             </article>
@@ -195,89 +194,5 @@
             </article>
         </section>                        
     </div>
-
-
-
-    <script type="text/javascript">
-$(document).ready(function() {
-    
-    redrawDotNav();
-    
-    /* Scroll event handler */
-    $(window).bind('scroll',function(e){
-        parallaxScroll();
-        redrawDotNav();
-    });
-    
-    /* Next/prev and primary nav btn click handlers */
-    $('a.home').click(function(){
-        $('html, body').animate({
-            scrollTop:0
-        }, 1000, function() {
-            parallaxScroll(); // Callback is required for iOS
-        });
-        return false;
-    });
-    $('a.about1').click(function(){
-        $('html, body').animate({
-            scrollTop:$('#about1').offset().top
-        }, 1000, function() {
-            parallaxScroll(); // Callback is required for iOS
-        });
-        return false;
-    });
-    $('a.contact').click(function(){
-        $('html, body').animate({
-            scrollTop:$('#contact').offset().top
-        }, 1000, function() {
-            parallaxScroll(); // Callback is required for iOS
-        });
-        return false;
-    });
-    
-    /* Show/hide dot lav labels on hover */
-    $('nav#primary a').hover(
-        function () {
-            $(this).prev('h1').show();
-        },
-        function () {
-            $(this).prev('h1').hide();
-        }
-    );
-    
-});
-
-/* Scroll the background layers */
-function parallaxScroll(){
-/*    var scrolled = $(window).scrollTop();
-    $('#parallax-bg1').css('top',(0-(scrolled*.25))+'px');
-    $('#parallax-bg2').css('top',(0-(scrolled*.5))+'px');
-    $('#parallax-bg3').css('top',(0-(scrolled*.75))+'px');*/
-}
-
-/* Set navigation dots to an active state as the user scrolls */
-function redrawDotNav(){
-    var section1Top =  0;
-    // The top of each section is offset by half the distance to the previous section.
-    var section2Top =  $('#about1').offset().top - (($('#contact').offset().top - $('#about1').offset().top) / 2);
-    // var section3Top =  $('#contact').offset().top - (($('#about').offset().top - $('#contact').offset().top) / 2);
-    var section3Top =  $('#contact').offset().top - (($(document).height() - $('#contact').offset().top) / 2);;
-    // var section4Top =  $('#about').offset().top - (($(document).height() - $('#about').offset().top) / 2);;
-    $('nav#primary a').removeClass('active');
-    if($(document).scrollTop() >= section1Top && $(document).scrollTop() < section2Top){
-        $('nav#primary a.home').addClass('active');
-    } else if ($(document).scrollTop() >= section2Top && $(document).scrollTop() < section3Top){
-        $('nav#primary a.about1').addClass('active');
-    } 
-    /*else if ($(document).scrollTop() >= section3Top && $(document).scrollTop() < section4Top){
-        $('nav#primary a.contact').addClass('active');
-    }*/ else if ($(document).scrollTop() >= section3Top){
-        $('nav#primary a.contact').addClass('active');
-    }/*else if ($(document).scrollTop() >= section4Top){
-        $('nav#primary a.about').addClass('active');
-    }*/
-    
-}
-    </script>
 
 </body>
