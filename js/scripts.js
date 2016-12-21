@@ -48,12 +48,30 @@ $(function() {
         }, 1000);
         return false;
     });
-    $('a.about1').click(function(){
+    $('a.about').click(function(){
         $('html, body').animate({
-            scrollTop:$('#about1').offset().top
+            scrollTop:$('#about').offset().top
         }, 1000);
         return false;
     });
+    $('a.features').click(function(){
+        $('html, body').animate({
+            scrollTop:$('#features').offset().top
+        }, 1000);
+        return false;
+    }); 
+    $('a.price').click(function(){
+        $('html, body').animate({
+            scrollTop:$('#price').offset().top
+        }, 1000);
+        return false;
+    });
+    $('a.news').click(function(){
+        $('html, body').animate({
+            scrollTop:$('#news').offset().top
+        }, 1000);
+        return false;
+    });    
     $('a.contact').click(function(){
         $('html, body').animate({
             scrollTop:$('#contact').offset().top

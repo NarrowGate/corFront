@@ -7,7 +7,7 @@
 *****************************************************************/
 
 html { 
-	overflow-y: scroll; /* always force a scrollbar in non-IE */
+	/*overflow-y: scroll;*/ /* always force a scrollbar in non-IE */ /* ? MW vertical scroll issue is caused */
 	}
 body {
 	background: #e3e5e5;

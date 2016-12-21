@@ -20,14 +20,23 @@ function smoothScroll() {
 function redrawDotNav(){
     var section1Top =  0;
     // The top of each section is offset by half the distance to the previous section.
-    var section2Top =  $('#about1').offset().top - (($('#contact').offset().top - $('#about1').offset().top) / 2);
-    var section3Top =  $('#contact').offset().top - (($(document).height() - $('#contact').offset().top) / 2);
+    var section2Top =  $('#about').offset().top - (($('#features').offset().top - $('#about').offset().top) / 2);
+    var section3Top =  $('#features').offset().top - (($('#price').offset().top - $('#features').offset().top) / 2);
+    var section4Top =  $('#price').offset().top - (($('#news').offset().top - $('#price').offset().top) / 2);
+    var section5Top =  $('#news').offset().top - (($('#contact').offset().top - $('#news').offset().top) / 2);
+    var section6Top =  $('#contact').offset().top - (($(document).height() - $('#contact').offset().top) / 2);
     $('nav#primary a').removeClass('active');
     if($(document).scrollTop() >= section1Top && $(document).scrollTop() < section2Top){
         $('nav#primary a.home').addClass('active');
     } else if ($(document).scrollTop() >= section2Top && $(document).scrollTop() < section3Top){
-        $('nav#primary a.about1').addClass('active');
-    } else if ($(document).scrollTop() >= section3Top){
+        $('nav#primary a.about').addClass('active');
+    } else if ($(document).scrollTop() >= section3Top && $(document).scrollTop() < section4Top){
+        $('nav#primary a.features').addClass('active');
+    } else if ($(document).scrollTop() >= section4Top && $(document).scrollTop() < section5Top){
+        $('nav#primary a.price').addClass('active');
+    } else if ($(document).scrollTop() >= section5Top && $(document).scrollTop() < section6Top){
+        $('nav#primary a.news').addClass('active');
+    } else if ($(document).scrollTop() >= section6Top){
         $('nav#primary a.contact').addClass('active');
     }
     
@@ -98,23 +107,7 @@ function rotateH1() {
         backgroundColor: "#868586",
         ease: Linear.easeNone
     })]);
-    (new ScrollScene({
-        triggerElement: ".rotateH1BE",
-        triggerHook: 1,
-        duration: 500
-    })).addTo($controller).setTween([TweenMax.fromTo(".rotateH1BE", 1, {
-        rotationX: -110
-    }, {
-        rotationX: 0,
-        ease: Linear.easeNone
-    }), TweenMax.fromTo($(".rotateH1BE").children(".rotateXh1"),
-        1, {
-            backgroundColor: "#DCDBDC"
-        }, {
-            backgroundColor: "#868586",
-            ease: Linear.easeNone
-        })])
-}
+};
 
 function subnav(a, b, c) {
     var d = a.find("li").length;
