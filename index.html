@@ -22,7 +22,8 @@
 	<link rel="stylesheet" href="css/style.css" type="text/css" />
     <link rel="stylesheet" href="css/responsive.css" type="text/css" />
     <link rel="stylesheet" href="css/custom.css" type="text/css" />
-	<link rel="stylesheet" href="css/scroller_pagination.css" type="text/css" />
+    <link rel="stylesheet" href="css/scroller_pagination.css" type="text/css" />
+	<link rel="stylesheet" href="css/radial_menu.css" type="text/css" />
 	<link rel="stylesheet" href="js/slick/slick.css" type="text/css" /> 
 	<!-- JS -->
 	<script src="js/jquery.min.js"></script> 
@@ -96,6 +97,56 @@
             <a href="#">Pricing / Free Trial</a>
             <a href="#">Login</a>
         </nav>
+
+        <nav class="radial_menu">
+            <div class="menu">
+              <div class="btn trigger">
+                <span class="line"></span>
+              </div>
+              <div class="icons">
+                <div class="rotater">
+                  <div class="btn btn-icon">
+                    About
+                  </div>
+                </div>
+                <div class="rotater">
+                  <div class="btn btn-icon">
+                    Features
+                  </div>
+                </div>
+                <div class="rotater">
+                  <div class="btn btn-icon">
+                    Pricing
+                  </div>
+                </div>
+                <div class="rotater">
+                  <div class="btn btn-icon">
+                    News
+                  </div>
+                </div>
+                <div class="rotater">
+                  <div class="btn btn-icon">
+                    Contact
+                  </div>
+                </div>
+                <div class="rotater">
+                  <div class="btn btn-icon">
+                    <i class="fa fa-linkedin"></i>
+                  </div>
+                </div>
+                <div class="rotater">
+                  <div class="btn btn-icon">
+                    <i class="fa fa-github"></i>
+                  </div>
+                </div>
+                <div class="rotater">
+                  <div class="btn btn-icon">
+                    <i class="fa fa-behance"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </nav>
     </header>        
 
     <div id="main">
@@ -108,7 +159,6 @@
                     <div class="welcomeTitle">
                         <h1>welcome to the world of kradle</h1>
                         <p>nobody knows your business the way you do, imagine being able to... create your own data model without needing complicated schemas and expensive deployments arrange your own permission and access rules build your own business process management templates store your data safely in some of the world’s most secure data centres it is time to take control</p>
-                        <div class="scrollDown"></div>
                     </div>                                            
                     <div class="content">
                         <div class="wrapper">
@@ -169,5 +219,12 @@
                     </div>
         </section>                        
     </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+          $(".trigger").click(function() {
+            $(".menu").toggleClass("active"); 
+          });
+        });
+    </script>
 
 </body>
