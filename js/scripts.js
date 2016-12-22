@@ -156,37 +156,6 @@ $(function() {
             ease: Linear.easeNone
         }));
 
-
-
-    (new ScrollScene({
-        triggerElement: "#contact .mainPicture",
-        triggerHook: 0,
-        duration: 200
-    })).addTo($controller).on("start", function(b) {
-        "FORWARD" == b.scrollDirection
-    });
-
-    categorizr.isDesktop && (new ScrollScene({
-        triggerElement: "#contact .mainPicture > .fadeMainPicture",
-        triggerHook: 0,
-        duration: $(window).height()
-    })).addTo($controller).setTween(TweenMax.to("#contact .mainPicture > .fadeMainPicture",
-        1, {
-            opacity: .4
-        }));
-    categorizr.isDesktop && (new ScrollScene({
-        triggerElement: "#contact .mainPicture",
-        triggerHook: 1,
-        duration: $(window).height() + 500
-    })).addTo($controller).setTween(TweenMax.fromTo("#contact .mainPicture", 1, {
-        backgroundPosition: "center -180px"
-    }, {
-        backgroundPosition: "center 50px",
-        ease: Linear.easeNone
-    }));
-
-
-
     $(window).resize(function() {
         adapt_mainPic_height();
         detectDevicesandScreens()
